@@ -3,7 +3,9 @@ body {
 }
 #score {
     position: absolute;
-    font-size: 25px;
-    left:  50%;
-    bottom: 88%;
+    font-size: 22px;
+    left:  46%;
+    bottom: 86%;
+    color: lawngreen;
+    font-family: monospace;
 }

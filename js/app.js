@@ -4,7 +4,7 @@ const FIELD_WIDTH = 505,
   START_Y = 404;
 CELL_WIDTH = 101;
 CELL_HEIGHT = 83;
-
+let count = 0;
 var Enemy = function (x, y, speed, player) {
   // Variables applied to each of our instances go here,
   // we've provided one for you to get started
@@ -16,13 +16,12 @@ var Enemy = function (x, y, speed, player) {
   // a helper we've provided to easily load images
   this.sprite = "images/enemy-bug.png";
 };
+
 const Player = function (x, y) {
   this.x = x;
   this.y = y;
   this.sprite = "images/char-boy.png";
-  document.getElementById("score").innerHTML = this.count = 0;
 };
-
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function (dt) {
@@ -52,12 +51,18 @@ Enemy.prototype.render = function () {
 // This class requires an update(), render() and
 // a handleInput() method.
 Player.prototype.update = function () {
+  document.getElementById('score').innerHTML = 
+  `
+    <div>
+      <p>Score:<span>${count}</span></p>
+    </div>
+  `
   if (this.y > START_Y) {
     this.y = START_Y;
   }
   if (this.y < 0) {
-    document.getElementById("score").innerHTML = this.count++;
     this.y = START_Y;
+    count++
   }
 
   if (this.x > FIELD_WIDTH - CELL_WIDTH) {
@@ -73,7 +78,7 @@ Player.prototype.render = function () {
 Player.prototype.resetPosition = function () {
   player.x = START_X;
   player.y = START_Y;
-  document.getElementById("score").innerHTML = this.count = 0;
+  count = 0;
 };
 Player.prototype.handleInput = function (key) {
   switch (key) {
