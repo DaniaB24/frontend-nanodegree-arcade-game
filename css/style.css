@@ -1,11 +1,8 @@
 body {
     text-align: center;
 }
-#score {
-    position: absolute;
-    font-size: 22px;
-    left:  46%;
-    bottom: 86%;
-    color: lawngreen;
+.score {
+    font-size: 30px;
+    color: #4ebd30;
     font-family: monospace;
 }
